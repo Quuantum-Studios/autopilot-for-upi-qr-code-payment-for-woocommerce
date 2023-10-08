@@ -1,0 +1,13 @@
+/.wordpress-org
+/.git
+/.github
+
+_config.yml
+.distignore
+.editorconfig
+.gitignore
+CHANGELOG.md
+phpcs.xml
+README.md
+LICENSE
+todo

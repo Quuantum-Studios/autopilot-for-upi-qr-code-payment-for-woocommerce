@@ -1,9 +1,9 @@
 === Autopilot For UPI QR Code Payment Gateway for WooCommerce ===
-Contributors: infosatech
+Contributors: quuantum
 Tags: automatic, upi, upi payment, woocommerce, qrcode, bhim upi, paytm upi, india
 Requires at least: 4.6
-Tested up to: 6.2
-Stable tag: 1.0.0
+Tested up to: 6.3
+Stable tag: 1.0.0-beta.02
 Requires PHP: 5.6
 Donate link: https://www.quuantum.com
 License: GPLv3
@@ -47,7 +47,7 @@ Like Autopilot For UPI QR Code Payment Gateway for WooCommerce plugin? Consider 
 * This plugin is fully compatible with WordPress Version 4.6 and beyond and also compatible with any WordPress theme.
 
 #### Support
-* Community support via the [support forums](https://wordpress.org/support/plugin/autopilot-for-upi-qr-code-payment-for-woocommerce) at WordPress.org.
+* Community support via the [support forums](https://wordpress.org/support/plugin/autopilot-for-upi-qr-code-payment-gateway) at WordPress.org.
 
 #### Contribute
 * Active development of this plugin is handled [on GitHub](https://github.com/toppersdesk/autopilot-for-upi-qr-code-payment-for-woocommerce).
@@ -57,7 +57,7 @@ Like Autopilot For UPI QR Code Payment Gateway for WooCommerce plugin? Consider 
 
 1. Visit 'Plugins > Add New'.
 1. Search for 'Autopilot For UPI QR Code Payment Gateway for WooCommerce' and install it.
-1. Or you can upload the `upi-qr-code-payment-for-woocommerce` folder to the `/wp-content/plugins/` directory manually.
+1. Or you can upload the `autopilot-for-upi-qr-code-payment-for-woocommerce` folder to the `/wp-content/plugins/` directory manually.
 1. Activate Autopilot For UPI QR Code Payment Gateway for WooCommerce from your Plugins page.
 1. After activation go to 'Settings > Autopilot'.
 
@@ -81,7 +81,7 @@ Yes, this plugin is all about auto verification. Check description above.
 
 = The plugin isn't working or have a bug? =
 
-Post detailed information about the issue in the [support forum](https://wordpress.org/support/plugin/autopilot-for-upi-qr-code-payment-for-woocommerce) and I will work to fix it.
+Post detailed information about the issue in the [support forum](https://wordpress.org/support/plugin/autopilot-for-upi-qr-code-payment-gateway) and I will work to fix it.
 
 == Screenshots ==
 
@@ -95,7 +95,7 @@ No Upgrades required.
 
 == Changelog ==
 
-If you like Autopilot For UPI QR Code Payment Gateway for WooCommerce, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/upi-qr-code-payment-for-woocommerce/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+If you like Autopilot For UPI QR Code Payment Gateway for WooCommerce, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/autopilot-for-upi-qr-code-payment-gateway/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
 = 1.0.0 =
 Release Date: June 14, 2023
