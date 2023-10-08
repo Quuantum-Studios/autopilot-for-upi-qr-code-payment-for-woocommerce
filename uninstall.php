@@ -19,13 +19,13 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       https://quuantum.com
- * @since      1.0.0
+ * @link  https://www.quuantum.com
+ * @since 1.0.0
  *
- * @package    Auto_Order_Updater_For_Upi_Qr_Code_Payment_For_Woocommerce
+ * @package Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce
  */
 
 // If uninstall not called from WordPress, then exit.
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit;
+if ( ! defined('WP_UNINSTALL_PLUGIN') ) {
+    exit;
 }
