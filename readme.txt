@@ -46,6 +46,17 @@ Like Autopilot For UPI QR Code Payment Gateway for WooCommerce plugin? Consider 
 
 * This plugin is fully compatible with WordPress Version 4.6 and beyond and also compatible with any WordPress theme.
 
+#### Future Plans
+
+If this plugin gets a significant positive response, we will add the following advanced features to help users setup the plugin:
+* One click app setup for tracking txn messages.
+* Detailed logs of which messages has been tracked.
+* Auto update the settings of UPI QR Code Payment Gateway plugin to best suited version of autopilot.
+* Additional options to set message templates.
+* Sender filters in the app
+* Auto adjust settings according to the latest tracked message format.
+* In case of background app closing due to phone restart, you will get an email notification.
+
 #### Support
 * Community support via the [support forums](https://wordpress.org/support/plugin/autopilot-for-upi-qr-code-payment-gateway) at WordPress.org.
 
@@ -89,6 +100,7 @@ Post detailed information about the issue in the [support forum](https://wordpre
 2. API logs
 3. Transactions list
 4. Instructions
+5. Ideal settings to setup UPI QR Code Payment Gateway plugin according to autopilot
 
 == Upgrade Notice == 
 No Upgrades required.
