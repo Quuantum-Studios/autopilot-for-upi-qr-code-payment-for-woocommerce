@@ -3,7 +3,7 @@ Contributors: quuantum
 Tags: automatic, upi, upi payment, woocommerce, qrcode, bhim upi, paytm upi, india
 Requires at least: 4.6
 Tested up to: 6.3
-Stable tag: 1.0.0-beta.02
+Stable tag: 1.0.1
 Requires PHP: 5.6
 Donate link: https://www.quuantum.com
 License: GPLv3
@@ -108,6 +108,11 @@ No Upgrades required.
 == Changelog ==
 
 If you like Autopilot For UPI QR Code Payment Gateway for WooCommerce, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/autopilot-for-upi-qr-code-payment-gateway/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+= 1.0.1 =
+Release Date: Oct 22, 2023
+
+* First production tested version released.
 
 = 1.0.0 =
 Release Date: June 14, 2023
