@@ -77,6 +77,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce
         $this->plugin_name = 'autopilot-for-upi-qr-code-payment-for-woocommerce';
 
         $this->defaults = (object)array(
+            'openai_key'      => 'MyChatGPTKey',
             'instructions'    => 'Scan the QR Code with any UPI apps like BHIM, Paytm, Google Pay, PhonePe or any Banking UPI app to make payment for this order.',
             'confirm_message' => "After successful payment, enter the UPI Reference ID or Transaction Number and your UPI ID (if asked).<br>Click Confirm, only after amount deducted from your account.<br><a href=\"https://hindi.planmoneytax.com/utr-number-in-phonepe-and-google-pay/\" target=\"_blank\">Click here</a> to know how you can get the 12-digit Transaction/UTR/Reference ID for your UPI app.",
         );

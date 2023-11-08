@@ -334,6 +334,9 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin
 
     public function parse_msg_using_gpt( $request ) {
         $apiKey = get_option('qaupiwc_openai_key');
+        if ( ! $apiKey || empty($apiKey) ) {
+            $apiKey = 'myRandomKey';
+        }
 
         if ( empty($apiKey) ) {
             return array( 'error' => 'No OpenAI API key provided' );

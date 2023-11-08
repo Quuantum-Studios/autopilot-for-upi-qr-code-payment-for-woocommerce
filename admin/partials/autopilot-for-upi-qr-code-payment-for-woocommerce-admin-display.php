@@ -20,14 +20,14 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
     }
 
     public function plugin_options_page() {
-        $active_tab = isset($_GET['tab']) ? sanitize_text_field(wp_unslash($_GET['tab'])) : 'api-logs';
+        $active_tab = isset($_GET['tab']) ? sanitize_text_field(wp_unslash($_GET['tab'])) : 'transactions';
         echo '<div class="wrap">
             <h2>Options</h2>
             <h2 class="nav-tab-wrapper">
-                <a href="?page=AutopilotForUpiwc&tab=api-logs" class="nav-tab ' . ($active_tab === 'api-logs' ? 'nav-tab-active' : '') . '">API Logs</a>
-                <a href="?page=AutopilotForUpiwc&tab=transactions" class="nav-tab ' . ($active_tab === 'transactions' ? 'nav-tab-active' : '') . '">Transactions</a>
-                <a href="?page=AutopilotForUpiwc&tab=settings" class="nav-tab ' . ($active_tab === 'settings' ? 'nav-tab-active' : '') . '">Settings</a>
                 <a href="?page=AutopilotForUpiwc&tab=instructions" class="nav-tab ' . ($active_tab === 'instructions' ? 'nav-tab-active' : '') . '">Instructions</a>
+                <a href="?page=AutopilotForUpiwc&tab=settings" class="nav-tab ' . ($active_tab === 'settings' ? 'nav-tab-active' : '') . '">Settings</a>
+                <a href="?page=AutopilotForUpiwc&tab=transactions" class="nav-tab ' . ($active_tab === 'transactions' ? 'nav-tab-active' : '') . '">Transactions</a>
+                <a href="?page=AutopilotForUpiwc&tab=api-logs" class="nav-tab ' . ($active_tab === 'api-logs' ? 'nav-tab-active' : '') . '">API Logs</a>
             </h2>';
 
         if ( $active_tab === 'api-logs' ) {
@@ -116,7 +116,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                 <tr>
                     <td>
                         Please save the OpenAI API key in settings section:<br>
-                        Current status: <b><?php echo empty(get_option('qaupiwc_openai_key')) ? 'Not provided' : 'Active' ?></b>
+                        Current status: <?php echo empty(get_option('qaupiwc_openai_key')) ? '<b style="color: red">Not provided</b>' : '<b style="color: green">Active</b>' ?></b>
                     </td>
                 </tr>
 
@@ -125,61 +125,43 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                 </tr>
                 <tr>
                     <td>
-                        <a href="https://f-droid.org/repo/tech.bogomolov.incomingsmsgateway_11.apk" target="_blank">Download</a> and install this android app to forward txn related messages on your website. Code for this app is open source.
-                        <p>Know more about this app <a target="_blank" href="https://github.com/bogkonstantin/android_income_sms_gateway_webhook/">here</a></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.quuantum.autopilot" target="_blank">Download</a> and install this android app to forward txn related messages on your website. Code for this app is open source.
+                        <p>Know more about this app <a target="_blank" href="https://github.com/toppersdesk/Autopilot-android-app">here</a></p>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <?php
-                        if ( ! isset($_GET['source']) || $_GET['source'] !== 'email' ) { ?>
-                            <b>To directly copy paste the below details in your phone, you can email this page link on your email. Then open it on your phone.</b>
-                            <br>
-                            <br>
-                        <?php
-                        }
-                        if ( isset($_POST['email_instructions']) && $_POST['email_instructions'] === 'true' ) {
-                            $admin_email = get_option('admin_email');
-                            $subject = 'Autopilot Setup Instructions';
-                            $body = 'Hi admin name,<br><br>Here are the instructions to setup and automate your payments received by customers on your WooCommerce store using UPI QR code payment gateway:<br><br><a href="' . admin_url('options-general.php?page=AutopilotForUpiwc&tab=instructions&source=email') . '">Click here</a> to view the instructions.';
-                            $headers = array( 'Content-Type: text/html; charset=UTF-8' );
-                            $result = wp_mail($admin_email, $subject, $body, $headers);
-
-                            if ( $result ) {
-                                echo '<p style="color:green">Email sent successfully to the admin.</p>';
-                            } else {
-                                echo '<p style="color:red">Failed to send email.</p>';
-                            }
-                        } elseif ( ! isset($_GET['source']) || $_GET['source'] !== 'email' ) { ?>
-                            <form method="POST" action="">
-                                <input name="email_instructions" id="email_instructions" type="hidden" value="true">
-                                <button type="submit">
-                                    Email instructions
-                                </button>
-                            </form>
-                        <?php
-                        }
-                        ?>
-                    </td>
+                    <th>Main Steps:</th>
                 </tr>
                 <tr>
                     <th scope="row">Step 1:</th>
                 </tr>
                 <tr>
-                    <th scope="row">
+                    <td scope="row">
                         <?php
                         if ( isset($_POST['generate_new_code']) && $_POST['generate_new_code'] === 'true' ) {
                             if ( $token_already_exists ) {
-                                echo 'An application password with name AutopilotForUpiwc already exists. Please go into profile settings and delete it first.';
+                                echo '<p style="color: red;">An application password with name AutopilotForUpiwc already exists. <p>Please go into profile settings and revoke it first.';
 
                                 $user_id = get_current_user_id();
                                 $profile_url = get_edit_profile_url($user_id);
                                 $application_passwords_url = $profile_url . '#application-passwords-section';
                         ?>
                                 <a href="<?php echo esc_url($application_passwords_url); ?>" target="_blank">Go to Application Passwords</a>
+
+                                <br>
+                                Once you deleted the existing token from profile, Click below:
+                                <br><br>
+                                <form method="POST" action="">
+                                    <input name="generate_new_code" id="generate_new_code" type="hidden" value="true">
+                                    <?php wp_nonce_field('generate_new_code_' . get_current_user_id()); ?>
+                                    <button type="submit">
+                                        Retry Generate new token
+                                    </button>
+                                </form>
                             <?php
                             } else {
-                                echo 'A new token has been generated and added in the below code. Please copy the token as well. It will not be shown again.<br><br>Generated Token:';
+                                echo '<p style="color:green">Success!!</p>
+                                A new token has been generated and added in the below code. Please copy the token as well. It will not be shown again.<br><br>Generated Token:';
                                 echo '<pre>' . wp_kses(htmlspecialchars($token), [ 'br' => array() ]) . '</pre>';
                             }
                         } else { ?>
@@ -192,7 +174,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                             </form>
                         <?php
                         } ?>
-                    </th>
+                    </td>
                 </tr>
 
                 <tr>
@@ -203,22 +185,92 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                         <p>Below are the details to setup the app so that the messages you recieve on the phone related to amount you recieved on the upi are then forwarded to your website webhook.<br> Don't worry, your messages data will be used and saved on your website only and you can delete it anytime.</p>
                     </td>
                 </tr>
+
                 <tr>
-                    <td>
-                        <h4>Webhook url</h4>
-                        <pre><?php echo esc_url($webhook_url) ?></pre>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h4>Headers to send</h4>
-                        <pre><?php echo wp_kses(htmlspecialchars($header_code), [ 'br' => array() ]) ?></pre>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h4>Request body</h4>
-                        <pre><?php echo wp_kses($body_code, [ 'br' => array() ]) ?></pre>
+                    <td class="wrap">
+                        <h2 class="nav-tab-wrapper instructions">
+                            <a href="?page=AutopilotForUpiwc&amp;tab=instructions#auto" class="nav-tab nav-tab-active">Auto Login</a>
+                            <a href="?page=AutopilotForUpiwc&amp;tab=instructions#manual" class="nav-tab">Manual</a>
+                        </h2>
+                        <section class="instructions">
+                            <p>Just scan the QR code on phone and open the link in Autopilot app.<br>
+                                The app will automatically setup the config required.</p>
+                            <?php
+                            if ( isset($_POST['generate_new_code']) && $_POST['generate_new_code'] === 'true' && ! str_contains($header_code, "YOUR_TOKEN_HERE") ) {
+                                require_once QAUPIWC_PATH . 'libs/qrcode.php';
+
+                                $login_url = "qaupiwc://import?url=" . rawurlencode($webhook_url) . "&headers=" . rawurlencode($header_code) . "&body=" . rawurlencode($body_code) . "&sender=" . rawurlencode('.*-PAYTMB');
+                                $generator = new QRCode($login_url, [
+                                    'w' => 200,
+                                    'h' => 200,
+                                ]);
+                                $image = $generator->render_image();
+                                ob_start();
+                                imagepng($image);
+                                imagedestroy($image);
+                                $rawImageBytes = ob_get_clean();
+
+                                echo '<img src="data:image/png;base64,' . esc_attr(base64_encode($rawImageBytes)) . '" />';
+                            } else {
+                                echo '<h3>Please Generate new token first to get the QR code</h3>';
+                            }
+                            ?>
+                        </section>
+                        <section class="instructions">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <?php
+                                        if ( ! isset($_GET['source']) || $_GET['source'] !== 'email' ) { ?>
+                                            <b>Optional- To directly copy paste the below details in your phone, you can email this page link on your email. Then open it on your phone.</b>
+                                            <br>
+                                            <br>
+                                        <?php
+                                        }
+                                        if ( isset($_POST['email_instructions']) && $_POST['email_instructions'] === 'true' ) {
+                                            $admin_email = get_option('admin_email');
+                                            $subject = 'Autopilot Setup Instructions';
+                                            $body = 'Hi admin name,<br><br>Here are the instructions to setup and automate your payments received by customers on your WooCommerce store using UPI QR code payment gateway:<br><br><a href="' . admin_url('options-general.php?page=AutopilotForUpiwc&tab=instructions&source=email') . '">Click here</a> to view the instructions.';
+                                            $headers = array( 'Content-Type: text/html; charset=UTF-8' );
+                                            $result = wp_mail($admin_email, $subject, $body, $headers);
+
+                                            if ( $result ) {
+                                                echo '<p style="color:green">Email sent successfully to the admin.</p>';
+                                            } else {
+                                                echo '<p style="color:red">Failed to send email.</p>';
+                                            }
+                                        } elseif ( ! isset($_GET['source']) || $_GET['source'] !== 'email' ) { ?>
+                                            <form method="POST" action="">
+                                                <input name="email_instructions" id="email_instructions" type="hidden" value="true">
+                                                <button type="submit">
+                                                    Email instructions
+                                                </button>
+                                            </form>
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Webhook url</h4>
+                                        <pre><?php echo esc_url($webhook_url) ?></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Headers to send</h4>
+                                        <pre><?php echo wp_kses(htmlspecialchars($header_code), [ 'br' => array() ]) ?></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Request body</h4>
+                                        <pre><?php echo wp_kses($body_code, [ 'br' => array() ]) ?></pre>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
                     </td>
                 </tr>
             </tbody>
@@ -352,8 +404,9 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                 'label'       => 'OpenAI API Key',
                 'placeholder' => 'key',
                 'id'          => 'qaupiwc_openai_key',
-                'desc'        => 'API key to parse data from payment messages.',
+                'desc'        => 'API key to parse data from payment messages. If you don\'t have the key yet, you can put any random text and the plugin will automatically use default regex to parse the messages.',
                 'type'        => 'text',
+                'default'     => $this->defaults->openai_key,
             ),
             array(
                 'section'     => 'AutopilotForUpiwc_section',

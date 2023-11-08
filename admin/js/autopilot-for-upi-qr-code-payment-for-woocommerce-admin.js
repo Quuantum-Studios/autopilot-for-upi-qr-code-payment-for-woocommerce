@@ -69,4 +69,10 @@
         }
     );
 
+    $(document).on('click', '.nav-tab-wrapper.instructions a', function () {
+        $('section.instructions').hide();
+        $('section.instructions').eq($(this).index()).show();
+        return false;
+    })
+
 })(jQuery);

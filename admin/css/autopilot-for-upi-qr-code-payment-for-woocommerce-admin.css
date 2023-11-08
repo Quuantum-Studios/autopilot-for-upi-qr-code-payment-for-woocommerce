@@ -16,3 +16,21 @@ pre {
     padding: 5px 10px;
     cursor: pointer;
 }
+
+/* instructions nav */
+
+h2.nav-tab-wrapper.instructions {
+	margin:22px 0 0 0;
+}
+
+section.instructions {
+	padding:22px;
+	background: #fff;
+	border:1px solid #ccc;
+	border-top:0px;
+	display:none;
+}
+
+section.instructions:nth-child(2) {
+	display:block;
+}
