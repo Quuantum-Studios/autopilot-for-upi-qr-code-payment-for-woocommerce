@@ -125,15 +125,13 @@ final class QAUPIWC
     }
 
     // Activation
-    public function activate()
-    {
+    public function activate() {
         require_once QAUPIWC_PATH . 'includes/class-autopilot-for-upi-qr-code-payment-for-woocommerce-activator.php';
         Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Activator::activate();
     }
 
     // Deactivation
-    public function deactivate()
-    {
+    public function deactivate() {
         require_once QAUPIWC_PATH . 'includes/class-autopilot-for-upi-qr-code-payment-for-woocommerce-deactivator.php';
         Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Deactivator::deactivate();
     }
@@ -142,8 +140,7 @@ final class QAUPIWC
     /**
      * Install or activate the main plugin
      */
-    public function install_or_activate_main_plugin()
-    {
+    public function install_or_activate_main_plugin() {
         $plugin_slug = 'upi-qr-code-payment-for-woocommerce/upi-qr-code-payment-for-woocommerce.php';
         $install_plugin_slug = 'upi-qr-code-payment-for-woocommerce';
 

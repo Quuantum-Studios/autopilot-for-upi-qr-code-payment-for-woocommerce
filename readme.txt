@@ -22,6 +22,7 @@ When this plugin is installed and setup, WooCommerce shop owners will be able to
 #### Important Notice
 
 Currently we only support UPI ids registered on paytm app because it's gives direct option to turn on the SMS alerts for payments recieved.
+[Autopilot android app](https://play.google.com/store/apps/details?id=com.quuantum.autopilot) is required on you phone to forward txn related messages on your website. 
 
 Like Autopilot For UPI QR Code Payment Gateway for WooCommerce plugin? Consider leaving a 5 star review.
 
@@ -99,8 +100,9 @@ Post detailed information about the issue in the [support forum](https://wordpre
 1. Admin Dashboard Settings
 2. API logs
 3. Transactions list
-4. Instructions
-5. Ideal settings to setup UPI QR Code Payment Gateway plugin according to autopilot
+4. Instructions - auto setup
+5. Instructions - manual setup
+6. Ideal settings to setup UPI QR Code Payment Gateway plugin according to autopilot
 
 == Upgrade Notice == 
 No Upgrades required.
@@ -108,6 +110,11 @@ No Upgrades required.
 == Changelog ==
 
 If you like Autopilot For UPI QR Code Payment Gateway for WooCommerce, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/autopilot-for-upi-qr-code-payment-gateway/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+= 1.0.2 =
+Release Date: Nov 8, 2023
+
+* Auto setup in android app using QR code added.
 
 = 1.0.1 =
 Release Date: Oct 22, 2023
