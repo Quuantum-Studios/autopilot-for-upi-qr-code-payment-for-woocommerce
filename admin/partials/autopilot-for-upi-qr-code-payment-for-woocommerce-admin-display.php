@@ -125,8 +125,8 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                 </tr>
                 <tr>
                     <td>
-                        <a href="https://play.google.com/store/apps/details?id=com.quuantum.autopilot" target="_blank">Download</a> and install this android app to forward txn related messages on your website. Code for this app is open source.
-                        <p>Know more about this app <a target="_blank" href="https://github.com/toppersdesk/Autopilot-android-app">here</a></p>
+                        <a href="https://github.com/toppersdesk/autopilot-android-app/releases" target="_blank">Download</a> and install this android app to forward txn related messages on your website. Code for this app is open source.
+                        <p>Know more about this app <a target="_blank" href="https://github.com/toppersdesk/autopilot-android-app">here</a></p>
                     </td>
                 </tr>
                 <tr>
