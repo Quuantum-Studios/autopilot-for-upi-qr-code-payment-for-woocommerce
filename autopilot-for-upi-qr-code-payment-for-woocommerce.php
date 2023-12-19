@@ -16,7 +16,7 @@
  * Plugin Name:       Autopilot for UPI QR Code Payment Gateway
  * Plugin URI:        https://www.quuantum.com/autopilot-for-upi-qr-code-payment-for-woocommerce
  * Description:       This is an AI-powered plugin to help you update your orders by verifying payments received through UPI on your woocommerce store.
- * Version:           1.0.1
+ * Version:           1.0.4
  * Author:            Quuantum
  * Author URI:        https://www.quuantum.com
  * License:           GPL-2.0+
@@ -43,7 +43,7 @@ final class QAUPIWC
      *
      * @var string
      */
-    public $version = '1.0.1';
+    public $version = '1.0.4';
 
     /**
      * The single instance of the class.

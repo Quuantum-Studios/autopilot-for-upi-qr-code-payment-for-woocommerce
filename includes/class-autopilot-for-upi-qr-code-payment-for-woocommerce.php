@@ -72,7 +72,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce
         if ( defined('QAUPIWC_VERSION') ) {
             $this->version = QAUPIWC_VERSION;
         } else {
-            $this->version = '1.0.1';
+            $this->version = '1.0.4';
         }
         $this->plugin_name = 'autopilot-for-upi-qr-code-payment-for-woocommerce';
 
