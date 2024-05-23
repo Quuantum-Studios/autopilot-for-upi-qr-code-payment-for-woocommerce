@@ -75,7 +75,6 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Public
          */
 
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/autopilot-for-upi-qr-code-payment-for-woocommerce-public.css', array(), $this->version, 'all');
-
     }
 
     /**

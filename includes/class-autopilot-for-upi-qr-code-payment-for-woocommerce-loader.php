@@ -51,7 +51,6 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Loader
 
         $this->actions = array();
         $this->filters = array();
-
     }
 
     /**
@@ -107,7 +106,6 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Loader
         );
 
         return $hooks;
-
     }
 
     /**
@@ -124,7 +122,5 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Loader
         foreach ( $this->actions as $hook ) {
             add_action($hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args']);
         }
-
     }
-
 }

@@ -61,5 +61,4 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Activator
         dbDelta($logs_sql);
         dbDelta($transactions_sql);
     }
-
 }

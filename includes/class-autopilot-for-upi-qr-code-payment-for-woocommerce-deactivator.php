@@ -31,7 +31,5 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Deactivator
      * @since 1.0.0
      */
     public static function deactivate() {
-
     }
-
 }

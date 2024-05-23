@@ -78,7 +78,6 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin
          */
 
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/autopilot-for-upi-qr-code-payment-for-woocommerce-admin.css', array(), $this->version, 'all');
-
     }
 
     /**
@@ -101,7 +100,6 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin
          */
 
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/autopilot-for-upi-qr-code-payment-for-woocommerce-admin.js', array( 'jquery' ), $this->version, false);
-
     }
 
     public function load_admin_views() {
@@ -110,7 +108,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin
 
     public function allow_cors_for_merchant_device_only( $value ) {
         $user_agent = sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT'] ?? ''));
-        if ( in_array($user_agent, [ 'QAUPIWC_USER_DEVICE' ]) !== false ) {
+        if ( in_array($user_agent, array( 'QAUPIWC_USER_DEVICE' )) !== false ) {
             header('Access-Control-Allow-Origin: *');
             header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
             header('Access-Control-Allow-Credentials: true');
@@ -176,14 +174,14 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin
 							$key = base64_decode($token[1]);
 							$data = explode(':', $key);
 							if ( empty($data) || count($data) !== 2 ) {
-								  return false;
+									return false;
 							}
 
 							$password = $data[1];
 							$username = $data[0];
 							$user = wp_authenticate_application_password(null, $username, $password);
 							if ( ! is_wp_error($user) ) {
-								  return true;
+									return true;
 							}
 						}
 					}
@@ -241,7 +239,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin
         }
 
         if ( ! is_array($data) ) {
-            return new WP_REST_Response([ $data ], 503);
+            return new WP_REST_Response(array( $data ), 503);
             wp_die();
         }
 
