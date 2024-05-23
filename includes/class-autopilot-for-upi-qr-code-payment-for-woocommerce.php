@@ -72,7 +72,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce
         if ( defined('QAUPIWC_VERSION') ) {
             $this->version = QAUPIWC_VERSION;
         } else {
-            $this->version = '1.0.4';
+            $this->version = '1.0.5';
         }
         $this->plugin_name = 'autopilot-for-upi-qr-code-payment-for-woocommerce';
 
@@ -110,24 +110,24 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce
          * The class responsible for orchestrating the actions and filters of the
          * core plugin.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-autopilot-for-upi-qr-code-payment-for-woocommerce-loader.php';
+        require_once plugin_dir_path(__DIR__) . 'includes/class-autopilot-for-upi-qr-code-payment-for-woocommerce-loader.php';
 
         /**
          * The class responsible for defining internationalization functionality
          * of the plugin.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-autopilot-for-upi-qr-code-payment-for-woocommerce-i18n.php';
+        require_once plugin_dir_path(__DIR__) . 'includes/class-autopilot-for-upi-qr-code-payment-for-woocommerce-i18n.php';
 
         /**
          * The class responsible for defining all actions that occur in the admin area.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-autopilot-for-upi-qr-code-payment-for-woocommerce-admin.php';
+        require_once plugin_dir_path(__DIR__) . 'admin/class-autopilot-for-upi-qr-code-payment-for-woocommerce-admin.php';
 
         /**
          * The class responsible for defining all actions that occur in the public-facing
          * side of the site.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-autopilot-for-upi-qr-code-payment-for-woocommerce-public.php';
+        require_once plugin_dir_path(__DIR__) . 'public/class-autopilot-for-upi-qr-code-payment-for-woocommerce-public.php';
 
         $this->loader = new Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Loader();
     }
@@ -236,5 +236,4 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce
     public function get_version() {
         return $this->version;
     }
-
 }

@@ -40,9 +40,5 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_i18n
             false,
             dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
         );
-
     }
-
-
-
 }

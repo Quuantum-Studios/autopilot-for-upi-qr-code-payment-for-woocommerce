@@ -44,7 +44,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
     }
 
     public function plugin_add_options_page() {
-        add_options_page('Autopilot', 'Autopilot', 'manage_options', 'AutopilotForUpiwc', [ &$this, 'plugin_options_page' ]);
+        add_options_page('Autopilot for UPIWC', 'Autopilot for UPIWC', 'manage_options', 'AutopilotForUpiwc', array( &$this, 'plugin_options_page' ));
         add_action('admin_init', array( $this, 'wph_setup_sections' ));
         add_action('admin_init', array( $this, 'wph_setup_fields' ));
     }
@@ -69,9 +69,9 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
             if ( ! $app_exists ) {
                 $new_app_password = WP_Application_Passwords::create_new_application_password(
                     $current_user->ID,
-                    [
+                    array(
                         'name' => 'AutopilotForUpiwc',
-                    ]
+                    )
                 );
                 $appPassword = $new_app_password[0];
 
@@ -162,7 +162,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                             } else {
                                 echo '<p style="color:green">Success!!</p>
                                 A new token has been generated and added in the below code. Please copy the token as well. It will not be shown again.<br><br>Generated Token:';
-                                echo '<pre>' . wp_kses(htmlspecialchars($token), [ 'br' => array() ]) . '</pre>';
+                                echo '<pre>' . wp_kses(htmlspecialchars($token), array( 'br' => array() )) . '</pre>';
                             }
                         } else { ?>
                             <form method="POST" action="">
@@ -200,10 +200,10 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                                 require_once QAUPIWC_PATH . 'libs/qrcode.php';
 
                                 $login_url = "qaupiwc://import?url=" . rawurlencode($webhook_url) . "&headers=" . rawurlencode($header_code) . "&body=" . rawurlencode($body_code) . "&sender=" . rawurlencode('.*-PAYTMB');
-                                $generator = new QRCode($login_url, [
+                                $generator = new QRCode($login_url, array(
                                     'w' => 200,
                                     'h' => 200,
-                                ]);
+                                ));
                                 $image = $generator->render_image();
                                 ob_start();
                                 imagepng($image);
@@ -260,13 +260,13 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
                                 <tr>
                                     <td>
                                         <h4>Headers to send</h4>
-                                        <pre><?php echo wp_kses(htmlspecialchars($header_code), [ 'br' => array() ]) ?></pre>
+                                        <pre><?php echo wp_kses(htmlspecialchars($header_code), array( 'br' => array() )) ?></pre>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <h4>Request body</h4>
-                                        <pre><?php echo wp_kses($body_code, [ 'br' => array() ]) ?></pre>
+                                        <pre><?php echo wp_kses($body_code, array( 'br' => array() )) ?></pre>
                                     </td>
                                 </tr>
                             </table>
@@ -354,7 +354,7 @@ class Autopilot_For_Upi_Qr_Code_Payment_For_Woocommerce_Admin_Views
 						<td>' . esc_html($txn->txn_id) . '</td>
 						<td>' . esc_html($txn->order_id) . '</td>
 						<td>' . esc_html($txn->amount) . '</td>
-						<td><pre style="max-height: 25vh;overflow-y:auto;">' . wp_kses($txn->parsed_output, [ 'br' => array() ]) . '</pre></td>
+						<td><pre style="max-height: 25vh;overflow-y:auto;">' . wp_kses($txn->parsed_output, array( 'br' => array() )) . '</pre></td>
 						<td>' . esc_html($txn->txn_time) . '</td>
 					</tr>';
             }
